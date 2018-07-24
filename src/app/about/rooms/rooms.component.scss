@@ -1,0 +1,30 @@
+.column {
+    flex: 33%;
+    max-width: 33%;
+    padding: 0 4px;
+    float: right;
+    
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+.hover:hover
+{
+    transform: scale(1.5); 
+}
+
+.bg {
+    color: gray;
+}
+
+.infos {
+    flex: 33%;
+    max-width: 33%;
+    padding: 4px 4px;
+    float: left;
+    font-size: 20px;
+    text-align: center;
+}

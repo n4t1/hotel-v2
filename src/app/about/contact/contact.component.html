@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <form class="mt-4 w-50" [formGroup]="contactForm" (ngSubmit)="submit()" >
+    <p class="h5 text-center mb-4">Napisz do nas</p>
+
+    <div class="md-form">
+      <i class="fa fa-user prefix grey-text"></i>
+      <input type="text" id="contactFormName" formControlName="name" class="form-control" mdbInputDirective>
+      <label for="contactFormName">Twoje imię</label>
+    </div>
+
+    <div class="md-form">
+      <i class="fa fa-envelope prefix grey-text"></i>
+      <input type="email" id="contactFormEmail" formControlName="email" class="form-control" mdbInputDirective>
+      <label for="contactFormEmail">Twój email</label>
+    </div>
+
+    <div class="md-form">
+      <i class="fa fa-tag prefix grey-text"></i>
+      <input type="text" id="contactFormSubject" formControlName="subject" class="form-control" mdbInputDirective>
+      <label for="contactFormSubject">Temat</label>
+    </div>
+
+    <div class="md-form">
+      <i class="fa fa-pencil prefix grey-text"></i>
+      <textarea type="text" id="contactFormMessage" formControlName="message" class="md-textarea" style="height: 100px" mdbInputDirective></textarea>
+      <label for="contactFormMessage">Twoja wiadomoćś</label>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-unique waves-light" mdbWavesEffect [disabled]="contactForm.invalid">Wyślij<i class="fa fa-paper-plane-o ml-1"></i></button>
+    </div>
+  </form>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+  <div>
+    <h2>Dane Teleadresowe</h2>
+    <p>
+      <b>Telefon</b>
+      <br> +48 33 48 65 000 lub +48 33 48 65 111
+      <br>
+      <b>Email:</b>
+      <br> play@hotel.com
+      <br>
+      <b>Adres</b>
+      <br> Stryszawa 667
+      <br> 34-205 Stryszawa, Zawoja/Przysłop
+    </p>
+  </div>
+</div>

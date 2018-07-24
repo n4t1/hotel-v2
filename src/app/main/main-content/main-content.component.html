@@ -1,0 +1,29 @@
+<main>
+  <div class="container-fluid p-0">
+
+    <div class="d-flex flex-row">
+      <div class="p-2 stylish-color fixed-top h-100 w-15">
+        <app-side-content [loginModal]="loginModal" [reservationModal]="reservationModal"></app-side-content>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-row-reverse">
+    <div class="w-85">
+      <app-navbar></app-navbar>
+      <app-center-content></app-center-content>
+    </div>
+  </div>
+
+  <!-- <mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+      <app-side-content [loginModal]="loginModal" [registerModal]="registerModal"></app-side-content>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-navbar></app-navbar>
+      <app-center-content></app-center-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->
+
+  <app-login #loginModal></app-login>
+  <app-panel #reservationModal [loginModal]="loginModal"></app-panel>
+</main>

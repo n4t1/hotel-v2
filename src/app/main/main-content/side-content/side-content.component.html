@@ -1,0 +1,17 @@
+<div class="text-center">
+  <logo>
+    <span class="logo navbar-brand mb-5">
+      <img src="../../../assets/imgs/logo2.png" height="100" alt="">
+    </span>
+  </logo>
+  <div>
+    <button type="button" class="btn btn-primary waves-light p-2" (click)="openLoginDialog()" mdbWavesEffect *ngIf="!auth.user">Zaloguj</button>
+    <button type="button" class="btn btn-primary waves-light p-2" (click)="logout()" mdbWavesEffect *ngIf="auth.user">Wyloguj</button>
+  </div>
+  <!-- <div class="unique-color-dark white-text p-3">
+    <p class="mb-0">2 rezer (ilosc dost rezerw)</p>
+  </div> -->
+  <div class="p-0">
+    <button type="button" class="btn unique-color waves-light p-3" (click)="openReservationDialog()" mdbWavesEffect>Rezerwuj online</button>
+  </div>
+</div>

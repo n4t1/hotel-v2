@@ -1,0 +1,46 @@
+<div mdbModal #form="mdb-modal" class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <div class="modal-content">
+
+        <div class="modal-header light-blue darken-3 white-text">
+          <h4 class="title">
+            <i class="fa fa-user"></i> Zaloguj</h4>
+          <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="md-form form-sm">
+            <i class="fa fa-envelope prefix"></i>
+            <input mdbInputDirective type="email" id="form30" class="form-control" formControlName="email">
+            <label for="form30">Email</label>
+          </div>
+
+          <div class="md-form form-sm">
+            <i class="fa fa-lock prefix"></i>
+            <input mdbInputDirective type="password" id="form9" class="form-control" formControlName="password">
+            <label for="form9">Hasło</label>
+          </div>
+
+          <div class="text-center mt-2">
+            <button class="btn btn-info waves-light" mdbWavesEffect type="submit" [disabled]="loginForm.invalid">Zaloguj
+              <i class="fa fa-sign-in ml-1"></i>
+            </button>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <div class="options mr-auto mt-1">
+            <p>Nie masz konta?
+              <button class="btn btn-info waves-light" mdbWavesEffect type="button" (click)="signUp()" [disabled]="loginForm.invalid">Zarejestruj się</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

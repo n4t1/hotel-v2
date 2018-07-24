@@ -1,0 +1,23 @@
+<div mdbModal #reservationModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" style="overflow: auto">
+  <div class="modal-dialog modal-lg " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="reservationModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Rezerwuj Online</h4>
+      </div>
+      <div class="modal-body">
+        <app-room-data *ngIf="!openUserBooks && reservationModal.isShown" (userBooks)="openUserBooks=$event" (spinner)="spinner=$event"></app-room-data>
+          <app-user-data *ngIf="openUserBooks && reservationModal.isShown" (books)="openUserBooks=$event" (spinner)="spinner=$event"></app-user-data>
+      </div>
+      <p class="text-center mt-4" *ngIf="!auth.user">
+        <button type="button" class="btn btn-primary waves-light p-2" (click)="openLoginDialog()" mdbWavesEffect *ngIf="!auth.user">Zaloguj</button> się aby rezerwować online
+      </p>
+      <div class="spinner-position" *ngIf="spinner">
+        <mat-spinner strokeWidth="5" diameter="40"></mat-spinner>
+      </div>
+    </div>
+  </div>
+</div>

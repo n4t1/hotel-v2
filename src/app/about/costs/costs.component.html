@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center">
+  <form class="mt-4 w-50" [formGroup]="subscriptionForm" (ngSubmit)="submit()">
+    <p class="h5 text-center mb-4">Zapisz się do naszego newslettera</p>
+
+    <div class="md-form">
+      <i class="fa fa-user prefix grey-text"></i>
+      <input type="text" formControlName="name" id="subscriptionFormName" class="form-control" mdbInputDirective>
+      <label for="subscriptionFormName">Twoje imię</label>
+    </div>
+
+    <div class="md-form">
+      <i class="fa fa-envelope prefix grey-text"></i>
+      <input type="email" id="subscriptionFormEmail" formControlName="email" class="form-control" mdbInputDirective>
+      <label for="subscriptionFormEmail">Twój email</label>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-indigo waves-light" mdbWavesEffect [disabled]="subscriptionForm.invalid">Wyślij<i class="fa fa-paper-plane-o ml-1"></i></button>
+    </div>
+  </form>
+</div>

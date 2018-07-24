@@ -1,0 +1,50 @@
+<div class="card card-body p-0">
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-info relative waves-light" mdbWavesEffect (click)="showUserBooks()" *ngIf="auth.user">Twoje rezerwacje</button>
+  </div>
+</div>
+<div class="card card-body">
+  <div class="flex-row">
+    <form [formGroup]="searchForm" (ngSubmit)="searchRooms()">
+      <mat-form-field style="margin-right: 1%">
+        <input matInput [matDatepicker]="myDatepicker1" placeholder="Data przyjazdu" formControlName="arrivalDate">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field style="margin-right: 1%">
+        <input matInput [matDatepicker]="myDatepicker2" placeholder="Data odjazdu" formControlName="departureDate">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker2></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Ile osób?" formControlName="people">
+          <mat-option *ngFor="let value of peopleValue" [value]="value.value">
+            {{ value.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button type="submit" class="btn btn-primary relative waves-light" mdbWavesEffect [disabled]="!auth.user || searchForm.invalid">Szukaj</button>
+    </form>
+  </div>
+</div>
+<div class="d-flex flex-wrap" *ngIf="this.auth.user">
+
+  <ng-container *ngFor="let room of rooms">
+    <div class="card card-body" style="margin-top: 1%">
+      <h4 class="card-title">{{room.name}}</h4>
+      <div class="flex-row">
+        <img class="img-fluid float-left" [src]="room.poster" alt="Card image cap" width="33%">
+        <p class="card-text">Cena za noc: {{room.cost}} zł</p>
+        <p class="card-text">Cena {{getNumberOfNights(room.cost).number}} nocy za {{this.searchForm.get('people').value}} osoby: {{getNumberOfNights(room.cost).cost}}
+          zł
+        </p>
+        <p class="card-text">Pokój będzie dostępny od godz 14:00</p>
+        <p class="card-text">Opuszczenie pokoju przed godz 11:00</p>
+        <button type="button" class="btn btn-primary relative waves-light float-right" mdbWavesEffect (click)="bookRoom(room)">Rezerwuj</button>
+      </div>
+    </div>
+  </ng-container>
+</div>

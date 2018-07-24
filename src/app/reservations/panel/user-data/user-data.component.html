@@ -1,0 +1,24 @@
+<div class="card card-body p-0">
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-info relative waves-light" mdbWavesEffect (click)="showBooks()">Rezerwuj Online</button>
+  </div>
+  <button type="button" class="btn btn-primary relative waves-light" mdbWavesEffect (click)="showUserBook()">Pokaż moje rezerwacje</button>
+</div>
+
+<div class="d-flex flex-wrap">
+
+  <ng-container *ngFor="let book of userBooks">
+    <div class="card card-body" style="margin-top: 1%">
+      <h4 class="card-title">{{book.room_name}} od {{book.arrivalDate | date:'yyyy-MM-dd'}} do {{book.departureDate | date:'yyyy-MM-dd'}}</h4>
+      <div class="flex-row">
+        <img class="img-fluid float-left" [src]="book.room_poster" alt="Card image cap" width="33%">
+        <p class="card-text">Cena {{book.nights}} nocy za {{book.people}} osoby: {{book.cost}} zł</p>
+        <p class="card-text">Pokój będzie dostępny od godz 14:00</p>
+        <p class="card-text">Opuszczenie pokoju przed godz 11:00</p>
+        <!-- <button type="button" class="btn btn-primary relative waves-light float-right" mdbWavesEffect (click)="bookRoom(room)">Usun</button> -->
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<p class="text-center mt-4" *ngIf="books.length === 0">Brak rezerwacji</p>
